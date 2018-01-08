@@ -45,8 +45,8 @@ class ViewController: UIViewController {
         let defTip = UserDefaults.standard.double(forKey: "defaultTip")
         //Display it
         if defTip != 0.0 {
-            for (index, value) in tipPercentages.enumerated(){
-                tipPercentages[index] = defTip + (0.5 * Double(index))
+            for (index, _) in tipPercentages.enumerated(){
+                tipPercentages[index] = defTip + (0.05 * Double(index))
             }
             //change segments
             tipControl.removeAllSegments()
@@ -54,6 +54,7 @@ class ViewController: UIViewController {
             tipControl.insertSegment(withTitle: String(format: "%.0f%%", tipPercentages[1] * 100), at: 1, animated: true)
             tipControl.insertSegment(withTitle: String(format: "%.0f%%", tipPercentages[2] * 100), at: 2, animated: true)
             tipControl.selectedSegmentIndex = 0
+            calculateTip((Any).self)
         }
         
         
@@ -71,6 +72,14 @@ class ViewController: UIViewController {
             totalLabel.textColor = white
             totalTextLabel.textColor = white
             tipTextLabel.textColor = white
+        } else {
+            view.backgroundColor = white
+            fieldView.backgroundColor = black
+            billField.textColor = white
+            tipLabel.textColor = black
+            totalLabel.textColor = black
+            totalTextLabel.textColor = black
+            tipTextLabel.textColor = black
         }
     }
 

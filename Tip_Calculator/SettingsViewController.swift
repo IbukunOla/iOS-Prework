@@ -42,6 +42,10 @@ class SettingsViewController: UIViewController {
             DTLabel.textColor = white
             dsLabel.textColor = white
             
+        } else {
+            view.backgroundColor = white
+            DTLabel.textColor = black
+            dsLabel.textColor = black
         }
     }
     
@@ -67,8 +71,9 @@ class SettingsViewController: UIViewController {
     @IBAction func skinChange(_ sender: Any) {
         //Save in defaults
         UserDefaults.standard.set(dsSwitch.isOn, forKey: "darkSkin")
-        changeSkin(dsSwitch.isOn)
+        //changeSkin(dsSwitch.isOn)
     }
+    
     /*
      // MARK: - Navigation
 
